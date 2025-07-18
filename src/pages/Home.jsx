@@ -5,8 +5,10 @@ import Discover from "../components/Discover";
 import Jazz from "../components/Jazz";
 import Final from "../components/Final";
 import { StepContext } from "../context/StepContext";
+
 const Home = () => {
   const { currentStep } = useContext(StepContext);
+
   const renderStep = () => {
     switch (currentStep) {
       case 1:
@@ -29,7 +31,12 @@ const Home = () => {
         return <div>Không tìm thấy bước</div>;
     }
   };
-  return <div className="h-full w-full overflow-hidden">{renderStep()}</div>;
+
+  return (
+    <div className="h-full w-full overflow-hidden px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 max-w-screen-xl mx-auto">
+      {renderStep()}
+    </div>
+  );
 };
 
 export default Home;

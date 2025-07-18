@@ -9,10 +9,13 @@ const Layout = () => {
 
   return (
     <StepContext.Provider value={{ currentStep, setCurrentStep }}>
-      <div className="flex flex-col justify-between items-center h-screen bg-primary p-5 pb-16">
-        <Navbar />
-        <Outlet />
-        <Button />
+      <div className="flex flex-col justify-between items-center max-h-screen h-screen bg-primary px-4 sm:px-6 md:px-10 pb-20">
+        <div className="w-full max-w-screen-xl">
+          <Navbar />
+          <Outlet />
+        </div>
+        {/* <div className="fixed bottom-16 left-1/2 -translate-x-1/2 z-50"> */}
+        {currentStep !== 6 && <Button />}
       </div>
     </StepContext.Provider>
   );

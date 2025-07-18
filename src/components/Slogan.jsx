@@ -6,7 +6,7 @@ const Slogan = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col justify-center items-center h-full">
+    <div className="mt-40">
       <p className="text-left text-3xl font-vipmontra text-jazz-gold">
         {t("Slogan")}
       </p>
