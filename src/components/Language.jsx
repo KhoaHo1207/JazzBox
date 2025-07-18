@@ -19,7 +19,7 @@ const Language = () => {
 
   return (
     <div
-      className="flex items-center gap-1 font-playfair"
+      className="flex items-center gap-1 font-viprasta text- bg-transparent"
       onClick={handleChangeLanguage}
     >
       <img src={currentFlag} alt={altText} className="size-5 rounded-full" />

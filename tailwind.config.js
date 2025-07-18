@@ -4,21 +4,26 @@ export default {
   theme: {
     extend: {
       backgroundColor: {
-        primary: "#3E2723",
+        primary: "#FFE7D1",
       },
       colors: {
-        "jazz-gold": "#D4AF37",
+        "jazz-gold": "#FFC022",
         "jazz-white": "#FFFFFF",
-        "jazz-gray": "#CCCCCC",
+        "jazz-gray": "#444445",
         "jazz-ruby": "#B71C1C",
         "jazz-green": "#2E4E3F",
-        "jazz-skin": "#FFF3D7",
+        "jazz-skin": "#FFE7D1",
+        "jazz-orange": "#D14828",
+        "jazz-purple": "#5A28A3",
       },
       fontFamily: {
-        playfair: ["'Playfair Display'", "serif"],
+        vipmontra: ["VIPMontra", "sans-serif"],
+        viprasta: ["VIPRastaglion", "sans-serif"],
       },
-      rotate: {
-        25: "25deg",
+      textShadow: {
+        sm: "1px 1px 2px rgba(0,0,0,0.3)",
+        DEFAULT: "2px 2px 4px rgba(0,0,0,0.5)",
+        lg: "4px 4px 6px rgba(0,0,0,0.6)",
       },
     },
   },

@@ -2,3 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "VIPMontra";
+  src: url("./assets/fonts/1FTV-VIP-Montra.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "VIPRastaglion";
+  src: url("./assets/fonts/1FTV-VIP-Rastaglion.otf") format("opentype");
+}

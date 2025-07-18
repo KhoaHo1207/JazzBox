@@ -1,0 +1,14 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
+
+const Discover = () => {
+  const { t } = useTranslation();
+  return (
+    <div className="text-3xl font-vipmontra text-jazz-orange mt-16">
+      <h5>{t("Discover")}</h5>
+      <h6 className="my-1">{t("Jazzbox")}</h6>
+    </div>
+  );
+};
+
+export default Discover;
