@@ -6,7 +6,7 @@ const Discover = () => {
   return (
     <div className="text-3xl font-vipmontra text-jazz-orange mt-16">
       <h5>{t("Discover")}</h5>
-      <h6 className="my-1">{t("Jazzbox")}</h6>
+      <h4 className="my-1">{t("Jazzbox")}</h4>
     </div>
   );
 };

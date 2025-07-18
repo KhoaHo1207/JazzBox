@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Slogan from "../components/Slogan";
 import Discover from "../components/Discover";
 import Jazz from "../components/Jazz";
+import Final from "../components/Final";
 import { StepContext } from "../context/StepContext";
 const Home = () => {
   const { currentStep } = useContext(StepContext);
@@ -22,6 +23,8 @@ const Home = () => {
             <Jazz />
           </>
         );
+      case 6:
+        return <Final />;
       default:
         return <div>Không tìm thấy bước</div>;
     }
