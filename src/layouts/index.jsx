@@ -9,13 +9,21 @@ const Layout = () => {
 
   return (
     <StepContext.Provider value={{ currentStep, setCurrentStep }}>
-      <div className="flex flex-col justify-between items-center max-h-screen h-screen bg-primary px-4 sm:px-6 md:px-10 pb-20 overflow-hidden">
-        <div className="w-full max-w-screen-xl">
+      <div className="flex flex-col justify-between items-center h-screen max-h-screen overflow-hidden bg-primary px-4 sm:px-6 md:px-10 relative">
+        <div className="w-full max-w-screen-xl flex-grow overflow-hidden">
           <Navbar />
-          <Outlet />
+          {/* Outlet should scroll internally if needed */}
+          <div className="overflow-auto h-full">
+            <Outlet />
+          </div>
         </div>
-        {/* <div className="fixed bottom-16 left-1/2 -translate-x-1/2 z-50"> */}
-        {currentStep !== 6 && <Button />}
+
+        {/* Button fixed to bottom center */}
+        {currentStep !== 6 && (
+          <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50">
+            <Button />
+          </div>
+        )}
       </div>
     </StepContext.Provider>
   );
