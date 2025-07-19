@@ -9,7 +9,7 @@ const Layout = () => {
 
   return (
     <StepContext.Provider value={{ currentStep, setCurrentStep }}>
-      <div className="flex flex-col justify-between items-center max-h-screen h-screen bg-primary px-4 sm:px-6 md:px-10 pb-20">
+      <div className="flex flex-col justify-between items-center max-h-screen h-screen bg-primary px-4 sm:px-6 md:px-10 pb-20 overflow-hidden">
         <div className="w-full max-w-screen-xl">
           <Navbar />
           <Outlet />
