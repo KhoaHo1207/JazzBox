@@ -6,11 +6,17 @@ const Slogan = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="mt-40">
-      <p className="text-left text-3xl font-vipmontra text-jazz-gold">
+    <motion.div
+      key="slogan"
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 100 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <p className="text-left text-3xl font-vipmontra text-jazz-gold mt-32">
         {t("Slogan")}
       </p>
-    </div>
+    </motion.div>
   );
 };
 

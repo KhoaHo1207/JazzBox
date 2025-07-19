@@ -5,7 +5,7 @@ import Discover from "../components/Discover";
 import Jazz from "../components/Jazz";
 import Final from "../components/Final";
 import { StepContext } from "../context/StepContext";
-
+import { AnimatePresence } from "framer-motion";
 const Home = () => {
   const { currentStep } = useContext(StepContext);
 
@@ -14,9 +14,9 @@ const Home = () => {
       case 1:
         return <Hero />;
       case 2:
-        return <Slogan />;
+        return <Slogan key="slogan" />;
       case 3:
-        return <Discover />;
+        return <Discover currentStep={currentStep} />;
       case 4:
       case 5:
         return (
@@ -34,7 +34,7 @@ const Home = () => {
 
   return (
     <div className="h-full w-full overflow-hidden px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 max-w-screen-xl mx-auto">
-      {renderStep()}
+      <AnimatePresence mode="wait">{renderStep()}</AnimatePresence>
     </div>
   );
 };
