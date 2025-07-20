@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import { StepContext } from "../context/StepContext";
 
 const Layout = () => {
-  const [currentStep, setCurrentStep] = useState(5);
+  const [currentStep, setCurrentStep] = useState(1);
   const [heroAnimation, setHeroAnimation] = useState(true);
 
   const handleNextStep = () => {
