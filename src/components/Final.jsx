@@ -7,7 +7,20 @@ import OpenBox from "../assets/images/Asset 1.png";
 const Final = () => {
   const { t } = useTranslation();
   const [clicked, setClicked] = useState(false);
-  const [animDone, setAnimDone] = useState(false); // Wait for animation before redirect
+  const [showOpenBox, setShowOpenBox] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+    // Delay OpenBox appearance for smoother transition
+    setTimeout(() => {
+      setShowOpenBox(true);
+    }, 300);
+
+    // Redirect after animation
+    setTimeout(() => {
+      window.location.href = "https://www.facebook.com/JazzBox";
+    }, 1800);
+  };
 
   const container = {
     hidden: { opacity: 0 },
@@ -45,18 +58,8 @@ const Final = () => {
     </motion.span>
   );
 
-  const handleClick = () => setClicked(true);
-
-  const handleAnimationComplete = () => {
-    if (clicked) {
-      setAnimDone(true);
-      window.location.href =
-        "https://www.facebook.com/profile.php?id=61577202131369";
-    }
-  };
-
   return (
-    <div className="mt-32 space-y-10 relative min-h-[400px]">
+    <div className="mt-32 space-y-10 relative min-h-[400px] overflow-hidden">
       <AnimatePresence>
         {!clicked && (
           <motion.div
@@ -101,7 +104,7 @@ const Final = () => {
           clicked
             ? {
                 opacity: 1,
-                scale: 2.5,
+                scale: 2.8,
                 position: "fixed",
                 top: "50%",
                 left: "50%",
@@ -119,24 +122,32 @@ const Final = () => {
         }
         transition={{
           type: "spring",
-          stiffness: 60,
-          damping: 15,
+          stiffness: 70,
+          damping: 18,
         }}
         onClick={handleClick}
-        onAnimationComplete={handleAnimationComplete}
-        className="flex justify-center cursor-pointer"
+        className={`flex justify-center cursor-pointer ${
+          showOpenBox ? "glow" : ""
+        }`}
       >
         <motion.img
           key={clicked ? "open" : "close"}
-          src={clicked ? OpenBox : CloseBox}
+          src={showOpenBox ? OpenBox : CloseBox}
           alt="Jazz Music Box"
-          initial={{ opacity: 0, rotate: -5 }}
-          animate={{ opacity: 1, rotate: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="w-[130px] mt-10"
         />
       </motion.div>
+
+      {/* Glow effect style */}
+      <style jsx>{`
+        .glow img {
+          filter: drop-shadow(0 0 25px #ffa500aa);
+        }
+      `}</style>
     </div>
   );
 };
