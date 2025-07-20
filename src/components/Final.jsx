@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Box from "../assets/images/Box.png";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Final = () => {
   const { t } = useTranslation();
+  const [clicked, setClicked] = useState(false);
 
   // Animation container để stagger các chữ cái div 2
   const container = {
@@ -44,49 +45,81 @@ const Final = () => {
     </motion.span>
   );
 
+  // Hàm xử lý click ảnh
+  const handleClick = () => {
+    setClicked(true);
+    // Delay thời gian animation để chuyển trang, bằng tổng duration animation
+    setTimeout(() => {
+      window.location.href =
+        "https://www.facebook.com/profile.php?id=61577202131369";
+    }, 1200); // 1.2s đủ cho animation phóng to + di chuyển
+  };
+
   return (
-    <div className="mt-32 space-y-10">
-      {/* Div 1 - Tiêu đề */}
-      <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="mb-10"
-      >
-        <h5 className="font-vipmontra text-3xl text-jazz-orange">
-          {t("FinalTitle1")}
-        </h5>
-        <h5 className="font-vipmontra text-3xl text-jazz-orange">
-          {t("FinalTitle2")}
-        </h5>
-      </motion.div>
+    <div className="mt-32 space-y-10 relative min-h-[400px]">
+      <AnimatePresence>
+        {!clicked && (
+          <>
+            {/* Div 1 - Tiêu đề */}
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="mb-10"
+            >
+              <h5 className="font-vipmontra text-3xl text-jazz-orange">
+                {t("FinalTitle1")}
+              </h5>
+              <h5 className="font-vipmontra text-3xl text-jazz-orange">
+                {t("FinalTitle2")}
+              </h5>
+            </motion.div>
 
-      {/* Div 2 - Text từng chữ xuất hiện, delay để chờ div 1 */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 0.9 }} // Chờ div 1 xong rồi mới xuất hiện
-        className="flex flex-col items-start w-full mb-20 text-xl font-viprasta text-jazz-gray"
-      >
-        <p>
-          <AnimatedText text={t("FinalText1")} />
-        </p>
-        <p>
-          <AnimatedText text={t("FinalText2")} />
-        </p>
-      </motion.div>
+            {/* Div 2 - Text từng chữ xuất hiện */}
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.9 }}
+              className="flex flex-col items-start w-full mb-20 text-xl font-viprasta text-jazz-gray"
+            >
+              <p>
+                <AnimatedText text={t("FinalText1")} />
+              </p>
+              <p>
+                <AnimatedText text={t("FinalText2")} />
+              </p>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
-      {/* Div 3 - Hình ảnh mở nhỏ to ra, delay để chờ div 2 */}
+      {/* Div 3 - Hình ảnh */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 1.9, ease: "easeOut" }}
-        className="flex justify-center"
+        animate={
+          clicked
+            ? {
+                opacity: 1,
+                scale: 2.5,
+                x: 0,
+                y: "-50vh",
+                position: "fixed",
+                top: "50%",
+                left: "50%",
+                translateX: "-50%",
+                translateY: "-50%",
+                zIndex: 1000,
+              }
+            : { opacity: 1, scale: 1, position: "static", x: 0, y: 0 }
+        }
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="flex justify-center cursor-pointer"
+        onClick={handleClick}
       >
-        <a href="https://www.facebook.com/profile.php?id=61577202131369">
-          <img src={Box} alt="Jazz Music Box" className="w-[150px] mt-10" />
-        </a>
+        <img src={Box} alt="Jazz Music Box" className="w-[150px] mt-10" />
       </motion.div>
     </div>
   );

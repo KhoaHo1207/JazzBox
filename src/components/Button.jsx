@@ -13,8 +13,14 @@ const Button = () => {
       case 1:
         setHeroAnimation(false);
         break;
-      default:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
         setCurrentStep((prev) => prev + 1);
+        break;
+      default:
+        break;
     }
   };
   return (

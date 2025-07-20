@@ -8,6 +8,21 @@ const Layout = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [heroAnimation, setHeroAnimation] = useState(true);
 
+  const handleNextStep = () => {
+    switch (currentStep) {
+      case 1:
+        setHeroAnimation(false);
+        break;
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+        setCurrentStep((prev) => prev + 1);
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <StepContext.Provider
       value={{
@@ -21,7 +36,7 @@ const Layout = () => {
         <div className="w-full max-w-screen-xl flex-grow overflow-hidden">
           <Navbar />
           {/* Outlet should scroll internally if needed */}
-          <div className="overflow-auto h-full">
+          <div className="overflow-auto h-full" onClick={handleNextStep}>
             <Outlet />
           </div>
         </div>

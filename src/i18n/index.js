@@ -9,7 +9,8 @@ const resources = {
     translation: {
       Language: "ENG",
       Action: "Touch to continue",
-      Slogan: "There are “languages” that cannot be explained, only felt.",
+      Slogan1: "There are “languages” that cannot be explained,",
+      Slogan2: "only felt.",
       Discover: "You have discovered",
       Jazzbox: "JAZZ BOX",
       J1: "Jam Mood ",
@@ -30,7 +31,8 @@ const resources = {
     translation: {
       Language: "VIE",
       Action: "Chạm để tiếp tục",
-      Slogan: "Có những “ngôn ngữ” không thể giải thích, chỉ có thể cảm nhận",
+      Slogan1: "Có những “ngôn ngữ” không thể giải thích",
+      Slogan2: "chỉ có thể cảm nhận",
       Discover: "Bạn đã khám phá ra",
       Jazzbox: "JAZZ BOX",
       J1: "Jam tâm trạng",

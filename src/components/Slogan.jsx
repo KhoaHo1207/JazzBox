@@ -14,7 +14,10 @@ const Slogan = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <p className="text-left text-3xl font-vipmontra text-jazz-gold mt-32">
-        {t("Slogan")}
+        {t("Slogan1")}
+      </p>
+      <p className="text-left text-3xl font-vipmontra text-jazz-gold">
+        {t("Slogan2")}
       </p>
     </motion.div>
   );
