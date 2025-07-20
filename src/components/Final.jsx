@@ -104,13 +104,11 @@ const Final = () => {
             ? {
                 opacity: 1,
                 scale: 2.5,
-                x: 0,
-                y: "-50vh",
                 position: "fixed",
                 top: "50%",
                 left: "50%",
-                translateX: "-50%",
-                translateY: "-50%",
+                x: "-50%",
+                y: "-50%",
                 zIndex: 1000,
               }
             : { opacity: 1, scale: 1, position: "static", x: 0, y: 0 }
