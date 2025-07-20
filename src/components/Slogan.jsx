@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 const Slogan = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const textSize = i18n.language === "en" ? "text-2xl" : "text-3xl";
 
   return (
     <motion.div
@@ -13,10 +14,12 @@ const Slogan = () => {
       exit={{ opacity: 0, x: 100 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <p className="text-left text-3xl font-vipmontra text-jazz-gold mt-32">
+      <p
+        className={`${textSize} text-left  font-vipmontra text-jazz-gold mt-32`}
+      >
         {t("Slogan1")}
       </p>
-      <p className="text-left text-3xl font-vipmontra text-jazz-gold">
+      <p className={`${textSize} text-left  font-vipmontra text-jazz-gold`}>
         {t("Slogan2")}
       </p>
     </motion.div>
