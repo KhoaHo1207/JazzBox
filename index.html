@@ -9,7 +9,22 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jazz Box</title>
+
+    <!-- ✅ Google Analytics tag -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ETD44RELSZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-ETD44RELSZ");
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
